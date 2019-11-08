@@ -1,12 +1,11 @@
 export const defaultMenuType = 'menu-default' // 'menu-default', 'menu-sub-hidden', 'menu-hidden';
 export const defaultStartPath = '/app/dashboards/default'
 export const searchPath = '/app/pages/miscellaneous/search'
-export const buyUrl = 'https://1.envato.market/nEyZa'
 
 export const subHiddenBreakpoint = 1440
 export const menuHiddenBreakpoint = 768
 
-export const defaultLocale = 'en'
+export const defaultLocale = 'es'
 export const defaultDirection = 'ltr'
 export const localeOptions = [
   { id: 'en', name: 'English LTR', direction: 'ltr' },
@@ -27,14 +26,14 @@ export const apiUrl = 'https://api.coloredstrategies.com'
 
 export const currentUser = {
   id: 1,
-  title: 'Sarah Kortney',
-  img: '/assets/img/profile-pic-l.jpg',
+  title: 'Admin',
+  img: '/assets/img/profile-pic-2.jpg',
   date: 'Last seen today 15:24'
 }
 
 export const isDemo = true
 export const themeRadiusStorageKey = 'theme_radius'
-export const defaultColor = 'light.orange'
+export const defaultColor = 'light.blue'
 export const colors = [
   'light.purple',
   'dark.purple',

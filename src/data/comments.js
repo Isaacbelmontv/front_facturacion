@@ -2,7 +2,7 @@ export const comments = [
   {
     title: 'Very informative content, thank you. ',
     detail: 'Mayra Sibley | Tea Loaf with Fresh Oranges | 17.09.2018 - 04:45',
-    thumb: '/assets/img/profile-pic-l.jpg',
+    thumb: '/assets/img/profile-pic-2.jpg',
     rate: 5,
     key: 0
   },
@@ -44,7 +44,7 @@ export const comments = [
   {
     title: 'Laree Munsch',
     detail: 'Brynn Bragg | Wedding Cake with Flowers | 12.04.2018 - 12:45',
-    thumb: '/assets/img/profile-pic-l.jpg',
+    thumb: '/assets/img/profile-pic-2.jpg',
     rate: 4,
     key: 6
   }
@@ -57,7 +57,7 @@ export const commentWithLikesData = [
     title: 'Mimi Carreira',
     detail: 'Pellentesque quis cursus mauris.',
     date: 'An hour ago',
-    thumb: '/assets/img/profile-pic-l.jpg',
+    thumb: '/assets/img/profile-pic-2.jpg',
     likes: 2,
     key: 0
   },
