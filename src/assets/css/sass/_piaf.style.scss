@@ -1,4 +1,4 @@
-/* Piaf Main Style 
+/* Piaf Main Style
 
 Table of Contents
 
@@ -151,7 +151,8 @@ body {
 }
 
 .fixed-background {
-  background: url("/assets/img/balloon.jpg") no-repeat center center fixed;
+  // background: url("/assets/img/balloon.jpg") no-repeat center center fixed;
+  background-color: #145388;
   background-size: cover;
   width: 100%;
   height: 100%;
@@ -5771,7 +5772,8 @@ input:-webkit-autofill {
 
   .image-side {
     width: 40%;
-    background: url("/assets/img/login-balloon.jpg") no-repeat center top;
+    // background: url("/assets/img/login-balloon.jpg") no-repeat center top;
+    background-color: #0c3253;
     background-size: cover;
     padding: 80px 40px;
 

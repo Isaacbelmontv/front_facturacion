@@ -1,8 +1,8 @@
 {
   "name": "piaf-vue",
   "version": "4.0.0",
-  "description": "Piaf - Vue 2 Bootstrap 4 Admin Dashboard Template",
-  "author": "Colored Strategies <support@coloredstrategies.com>",
+  "description": "DASHBOARD - FACTURACIÓN",
+  "author": "",
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",

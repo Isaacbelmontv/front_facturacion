@@ -70,7 +70,7 @@
                 </b-dropdown>
             </div>
 
-            <div class="position-relative d-inline-block">
+            <!-- <div class="position-relative d-inline-block">
                 <b-dropdown variant="empty" size="sm" right toggle-class="header-icon notificationButton" menu-class="position-absolute mt-3 notificationDropdown" no-caret>
                     <template slot="button-content">
                         <i class="simple-icon-bell" />
@@ -90,7 +90,7 @@
                         </div>
                     </vue-perfect-scrollbar>
                 </b-dropdown>
-            </div>
+            </div> -->
             <div class="position-relative d-none d-sm-inline-block ">
                 <div class="btn-group">
                     <b-button variant="empty" class="header-icon btn-sm" @click="toggleFullScreen">

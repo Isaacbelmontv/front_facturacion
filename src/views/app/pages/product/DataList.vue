@@ -25,13 +25,13 @@
                                 <b-form-input v-model="newItem.title" />
                             </b-form-group>
                             <b-form-group :label="$t('pages.category')">
-                                <v-select :options="categories" v-model="newItem.category" />
+                                <b-form-input v-model="newItem.category" />
                             </b-form-group>
-                            <b-form-group :label="$t('pages.description')">
-                                <b-textarea v-model="newItem.description" :rows="2" :max-rows="2" />
+                            <b-form-group :label="$t('pages.name')">
+                              <b-form-input v-model="newItem.name" />
                             </b-form-group>
-                            <b-form-group :label="$t('pages.status')">
-                                <b-form-radio-group stacked class="pt-2" :options="statuses" v-model="newItem.status" />
+                            <b-form-group :label="$t('pages.tipo')">
+                              <b-form-input v-model="newItem.tipo" />
                             </b-form-group>
                         </b-form>
 
@@ -48,17 +48,6 @@
                         <i class="simple-icon-arrow-down align-middle" />
                     </b-button>
                     <b-collapse id="displayOptions" class="d-md-block">
-                        <span class="mr-3 d-inline-block float-md-left">
-                            <a :class="{'mr-2 view-icon':true,'active': displayMode==='list'}" @click="changeDisplayMode('list')">
-                                <data-list-icon />
-                            </a>
-                            <a :class="{'mr-2 view-icon':true,'active': displayMode==='thumb'}" @click="changeDisplayMode('thumb')">
-                                <thumb-list-icon />
-                            </a>
-                            <a :class="{'mr-2 view-icon':true,'active': displayMode==='image'}" @click="changeDisplayMode('image')">
-                                <image-list-icon />
-                            </a>
-                        </span>
                         <div class="d-block d-md-inline-block pt-1">
                             <b-dropdown id="ddown1" :text="`${$t('pages.orderby')} ${sort.label}`" variant="outline-dark" class="mr-1 float-md-left btn-group" size="xs">
                                 <b-dropdown-item v-for="(order,index) in sortOptions" :key="index" @click="changeOrderBy(order)">{{ order.label }}</b-dropdown-item>
@@ -219,8 +208,8 @@ export default {
             newItem: {
                 title: '',
                 category: '',
-                description: '',
-                status: ''
+                name: '',
+                tipo: ''
             }
         }
     },
