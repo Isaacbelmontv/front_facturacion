@@ -1,6 +1,11 @@
 import Vue from 'vue'
 import App from './App'
 
+import VueSweetalert2 from 'vue-sweetalert2';
+
+// If you don't need the styles, do not connect
+import 'sweetalert2/dist/sweetalert2.min.css';
+
 // BootstrapVue add
 import BootstrapVue from 'bootstrap-vue'
 // Router & Store add
@@ -32,6 +37,7 @@ import 'firebase/auth'
 
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
+Vue.use(VueSweetalert2);
 
 const messages = { en: en, es: es }
 const locale = (localStorage.getItem('currentLanguage') && localeOptions.filter(x => x.id === localStorage.getItem('currentLanguage')).length > 0) ? localStorage.getItem('currentLanguage') : defaultLocale

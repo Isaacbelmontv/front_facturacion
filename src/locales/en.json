@@ -155,6 +155,16 @@
     "top-rated-items": "Top Rated Items"
   },
   "pages": {
+    "formaPago": "Forma de pago",
+    "total": "Total",
+    "ClaveProdServ" : "Clave del producto / Servicio",
+    "ClaveUnidad": "Clave Unidad",
+    "NoIdentificacion": "No. Identificación",
+    "Cantidad": "Cantidad",
+    "Unidad": "Unidad",
+    "Descripcion": "Descripción",
+    "ValorUnitario": "Valor unitario",
+    "Importe": "Importe",
     "add-new": "ADD NEW",
     "add-new-modal-title": "Add New Item",
     "display-options": "Display Options",
