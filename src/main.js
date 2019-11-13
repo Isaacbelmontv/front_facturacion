@@ -3,6 +3,8 @@ import App from './App'
 
 import VueSweetalert2 from 'vue-sweetalert2';
 
+import Datatable from 'vue2-datatable-component'
+
 // If you don't need the styles, do not connect
 import 'sweetalert2/dist/sweetalert2.min.css';
 
@@ -38,6 +40,7 @@ import 'firebase/auth'
 Vue.use(BootstrapVue)
 Vue.use(VueI18n)
 Vue.use(VueSweetalert2);
+Vue.use(Datatable) // done!
 
 const messages = { en: en, es: es }
 const locale = (localStorage.getItem('currentLanguage') && localeOptions.filter(x => x.id === localStorage.getItem('currentLanguage')).length > 0) ? localStorage.getItem('currentLanguage') : defaultLocale

@@ -66,6 +66,23 @@
             </b-colxx>
         </b-row>
         <template v-if="isLoad">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>id</th>
+                <th>fecha</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr v-for="data in datos">
+                <td>{{data.id_fac}}</td>
+                <td>{{data.fecha_fac}}</td>
+
+                <td>data</td>
+                <!-- <td>{{pro.name}}</td> -->
+              </tr>
+            </tbody>
+          </table>
           <!-- descomentar tabla -->
             <!-- <b-row v-if="displayMode==='image'" key="image">
                 <b-colxx sm="6" lg="4" xl="3" class="mb-3" v-for="(item,index) in items" :key="index" :id="item.id">
@@ -153,6 +170,7 @@ export default {
     data() {
         return {
           selected: null,
+            datos:[],
             optionsformaPago: [
             { value: '01', text: 'Efectivo' },
             { value: '02', text: 'Cheque nominativo' },
@@ -254,6 +272,30 @@ export default {
                     this.lastPage = res.last_page
                     this.isLoad = true
                 })
+
+                const headers = {
+                'Content-Type': 'application/x-www-form-urlencoded',
+                'Accept': 'application/json'
+              };
+
+                var urlBase = 'http://035cb0de.ngrok.io';
+                  axios.post(urlBase +'/facturar/consultarfacturas', {
+                    headers: headers,
+                    validateStatus: (status) => {
+                      return true; // I'm always returning true, you may want to do it depending on the status received
+                    },
+                  })
+                  .then(response => {
+                    console.log(response.data.data);
+                    this.datos = response.data.data;
+                  })
+                    .catch(function (error) {
+                      console.log('error');
+                    })
+                    .finally(function () {
+                      console.log('finally');
+                      // always executed
+                    });
         },
         hideModal(refname) {
             this.$refs[refname].hide()
@@ -284,29 +326,40 @@ export default {
             }];
 
             //Conexion
-            var urlBase = 'https://f31fc0f2.ngrok.io';
-            axios.post(urlBase + '/facturar/crearfactura', {
-              formaPago: this.newItem.formaPago,
-              total: this.newItem.total,
-              moneda: 'MXN',
-              tipoDeComprobante: 'I',
-              metodoPago: 'PUE',
-              lugarExpedicion: '06700',
-              receptorRfc: this.newItem.rfc,
-              regimenFiscal: '612',
-              usoCfdi: this.newItem.tipo,
-              conceptos: arrayOfConcept
-
-          })
-          .then(function (response) {
-              console.log(response);
-          })
-          .catch(function (error) {
-            console.log(error);
-              currentObj.output = error;
-          });
+            var urlBase = 'http://035cb0de.ngrok.io';
+            var data = {};
+            data['formaPago'] = this.newItem.formaPago;
+            data['total'] = this.newItem.total;
+            data['moneda'] = 'MXN';
+            data['tipoDeComprobante'] = 'I';
+            data['metodoPago'] = 'PUE';
+            data['lugarExpedicion'] = '06700';
+            data['receptorRfc'] = this.newItem.rfc;
+            data['regimenFiscal'] = 612;
+            data['usoCfdi'] = this.newItem.tipo;
+            data['conceptos'] = arrayOfConcept;
 
 
+
+            const headers = {
+            'Content-Type': 'application/x-www-form-urlencoded',
+            'Accept': 'application/json'
+          };
+
+            axios.post(urlBase+ '/facturar/crearfactura',
+                      data, {
+                        headers: headers
+                      })
+                      .then((response) => {
+                        console.log(response.data[0]);
+                        this.hideModal('modalright');
+                        this.newItem = {};
+                      })
+                      .catch((error) => {
+                        console.log(error);
+                        this.hideModal('modalright');
+                        this.newItem = {};
+                      })
             // Importe: ''
 
           }else{
