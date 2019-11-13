@@ -17,6 +17,7 @@
     "core-js": "^2.6.5",
     "firebase": "^5.9.1",
     "jquery": "^3.4.1",
+    "js-file-download": "^0.4.8",
     "v-calendar": "^0.9.7",
     "v-contextmenu": "^2.8.0",
     "video.js": "^7.4.1",

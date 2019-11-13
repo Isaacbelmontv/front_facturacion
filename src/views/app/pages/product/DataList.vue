@@ -70,16 +70,21 @@
             <thead>
               <tr>
                 <th>id</th>
-                <th>fecha</th>
+                <th>Fecha</th>
+                <th>Descripción</th>
+                <th>Folio fiscal</th>
+                <th>Status</th>
+                <th>Descarga</th>
               </tr>
             </thead>
             <tbody>
               <tr v-for="data in datos">
                 <td>{{data.id_fac}}</td>
                 <td>{{data.fecha_fac}}</td>
-
-                <td>data</td>
-                <!-- <td>{{pro.name}}</td> -->
+                <td>{{data.descripcion}}</td>
+                <td>{{data.folio_fiscal}}</td>
+                <td>{{data.estatus}}</td>
+                <td><img src="/assets/img/download.png" width="20" height="20" class="download" @click="downloadZip(data.folio_fiscal)"/></td>
               </tr>
             </tbody>
           </table>
@@ -278,7 +283,7 @@ export default {
                 'Accept': 'application/json'
               };
 
-                var urlBase = 'http://035cb0de.ngrok.io';
+                var urlBase = 'http://fc0d2d01.ngrok.io';
                   axios.post(urlBase +'/facturar/consultarfacturas', {
                     headers: headers,
                     validateStatus: (status) => {
@@ -288,6 +293,13 @@ export default {
                   .then(response => {
                     console.log(response.data.data);
                     this.datos = response.data.data;
+
+
+                    this.datos.forEach( function(valor) {
+                      var status = (valor.status == 0) ? 'Cancelada' : 'Activa';
+                      valor.estatus = status;
+                  });
+
                   })
                     .catch(function (error) {
                       console.log('error');
@@ -326,7 +338,7 @@ export default {
             }];
 
             //Conexion
-            var urlBase = 'http://035cb0de.ngrok.io';
+            var urlBase = 'http://fc0d2d01.ngrok.io';
             var data = {};
             data['formaPago'] = this.newItem.formaPago;
             data['total'] = this.newItem.total;
@@ -354,11 +366,13 @@ export default {
                         console.log(response.data[0]);
                         this.hideModal('modalright');
                         this.newItem = {};
+                        this.loadItems();
                       })
                       .catch((error) => {
                         console.log(error);
                         this.hideModal('modalright');
                         this.newItem = {};
+                        this.loadItems();
                       })
             // Importe: ''
 
@@ -367,6 +381,25 @@ export default {
                'Error', 'Faltan campos', 'error'
              );
           }
+        },
+        downloadZip(uid){
+          var data = {};
+          data['uuid'] = uid;
+
+          const headers = {
+          'Content-Type': 'application/x-www-form-urlencoded',
+          'Accept': 'application/json'
+        };
+
+          var urlBase = 'http://fc0d2d01.ngrok.io';
+          const FileDownload = require('js-file-download');
+          console.log(data);
+          axios.get(urlBase +`/facturar/descargafactura?uuid=${uid}`, {
+            headers: headers
+          })
+             .then((response) => {
+                  FileDownload(response.data, 'factura.zip');
+             });
         },
         selectAll(isToggle) {
             if (this.selectedItems.length >= this.items.length) {
