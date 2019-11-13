@@ -8,7 +8,7 @@ const routes = [
   {
     path: '/',
     component: () => import(/* webpackChunkName: "app" */ './views/app'),
-    redirect: '/app/dashboards',
+    redirect: 'app/pages/product/data-list',
     beforeEnter: AuthRequired,
     children: [
       {

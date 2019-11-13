@@ -1,15 +1,5 @@
 
-const data = [{
-    id: "dashboards",
-    icon: "iconsminds-shop-4",
-    label: "menu.dashboards",
-    to: "/app/dashboards",
-    subs: [{
-        icon: "simple-icon-briefcase",
-        label: "menu.default",
-        to: "/app/dashboards/default"
-    }]
-},
+const data = [
 {
     id: "pages",
     icon: "iconsminds-digital-drawing",

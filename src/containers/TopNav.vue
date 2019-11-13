@@ -20,7 +20,7 @@
 
     <router-link class="navbar-logo" tag="a" to="/">
         <!-- <span class="logo d-none d-xs-block"></span> -->
-        <p>DASHBOARD</p>
+        <!-- <p>DASHBOARD</p> -->
         <!-- <span class="logo-mobile d-block d-xs-none"></span> -->
     </router-link>
 
