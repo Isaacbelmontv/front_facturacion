@@ -283,7 +283,7 @@ export default {
                 'Accept': 'application/json'
               };
 
-                var urlBase = 'http://fc0d2d01.ngrok.io';
+                var urlBase = 'http://api_factura.cubicbytes.mx';
                   axios.post(urlBase +'/facturar/consultarfacturas', {
                     headers: headers,
                     validateStatus: (status) => {
@@ -338,7 +338,7 @@ export default {
             }];
 
             //Conexion
-            var urlBase = 'http://fc0d2d01.ngrok.io';
+            var urlBase = 'http://api_factura.cubicbytes.mx';
             var data = {};
             data['formaPago'] = this.newItem.formaPago;
             data['total'] = this.newItem.total;
@@ -389,7 +389,7 @@ export default {
           'Accept': 'application/json'
         };
 
-          var urlBase = 'http://fc0d2d01.ngrok.io';
+          var urlBase = 'http://api_factura.cubicbytes.mx';
           const FileDownload = require('js-file-download');
           var urlDownload = urlBase +`/facturar/descargafactura?uuid=${uid}`;
           location.href = urlDownload;
