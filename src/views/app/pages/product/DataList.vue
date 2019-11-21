@@ -351,15 +351,13 @@ export default {
             data['usoCfdi'] = this.newItem.tipo;
             data['conceptos'] = arrayOfConcept;
 
-
-
             const headers = {
-            'Content-Type': 'application/x-www-form-urlencoded',
+            'Content-Type': 'application/json',
             'Accept': 'application/json'
           };
 
             axios.post(urlBase+ '/facturar/crearfactura',
-                      data, {
+                      JSON.stringify(data), {
                         headers: headers
                       })
                       .then((response) => {
@@ -393,13 +391,8 @@ export default {
 
           var urlBase = 'http://api_factura.cubicbytes.mx';
           const FileDownload = require('js-file-download');
-          console.log(data);
-          axios.get(urlBase +`/facturar/descargafactura?uuid=${uid}`, {
-            headers: headers
-          })
-             .then((response) => {
-                  FileDownload(response.data, 'factura.zip');
-             });
+          var urlDownload = urlBase +`/facturar/descargafactura?uuid=${uid}`;
+          location.href = urlDownload;
         },
         selectAll(isToggle) {
             if (this.selectedItems.length >= this.items.length) {
